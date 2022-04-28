@@ -22,6 +22,10 @@ async function run() {
     await client.connect()
     const usersCollection = client.db('foodExpress').collection('users')
 
+    app.get('/', (req, res) => {
+      res.send('Server running seccessfully')
+    })
+
     app.get('/user', async (req, res) => {
       const query = {}
       const cursor = usersCollection.find(query)
